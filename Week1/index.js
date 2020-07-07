@@ -4,12 +4,14 @@ const Market = class {
         this.address = address
         this.order1 = []
     }
-    prepare(food) {
-        console.log("Prepared the " + food.name + " !")
-        this.order1.push(food)
+    prepare(product) {
+        console.log("Prepared the " + product.name + " !")
+        this.order1.push(product)
     }
-    printOrder(order1) {
-        console.log(order1)
+ 
+    printOrder(order1)
+    {
+    this.order1.forEach(printName)
     }
 
 }
@@ -27,8 +29,8 @@ const Customer = class {
 
     }
 
-    order(food, cafe) {
-        cafe.prepare(food)
+    order(product, market) {
+        market.prepare(product)
     }
 
 }
@@ -39,11 +41,14 @@ const Vegetables = class {
     }
 }
 
-const hamburger = new FastFood("Hamburger")
-const Midpoint = new Market("Midpoint", "OnderStreet")
+printName = product=> console.log(product.name)
+
+const cips = new FastFood("cips")
+const Migros = new Market("Migros", "OnderStreet")
 const armagan = new Customer("Armagan", "LiderStreet")
-const orderx = armagan.order(hamburger, Midpoint)
-
+const orderx = armagan.order(cips, Migros)
+const ayva = new Vegetables("ayva")
+const mert = new Customer("Migros","OnderStreet")
+const ordery = mert.order(ayva,Migros)
 console.log(armagan)
-
-
+Migros.printOrder()
