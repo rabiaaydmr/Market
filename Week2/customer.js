@@ -1,6 +1,6 @@
 
 const chalk = require('./node_modules/chalk');
-module.exports = class Customer {
+class Customer {
     constructor(name, address) {
         this.name = name
         this.address = address
@@ -12,3 +12,5 @@ module.exports = class Customer {
     }
 
 }
+
+module.exports = Customer
