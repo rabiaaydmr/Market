@@ -21,7 +21,6 @@ const FastFood = class {
     }
 
 }
-
 const Customer = class {
     constructor(name, address) {
         this.name = name

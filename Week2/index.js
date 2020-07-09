@@ -15,6 +15,8 @@ const FastFood = class {
 }
 
 
+
+
 const Vegetables = class {
     constructor(name) {
         this.name = name
