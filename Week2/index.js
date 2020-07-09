@@ -11,11 +11,7 @@ const FastFood = class {
     constructor(name) {
         this.name = name
     }
-
 }
-
-
-
 
 const Vegetables = class {
     constructor(name) {
@@ -25,20 +21,22 @@ const Vegetables = class {
 
 printName = product => console.log(chalk.cyan(product.name))
 
-const chips = new FastFood("chips")
-const Migros = new Market("Migros", "OnderStreet")
-const armagan = new Customer("Armagan", "LiderStreet")
-const orderx = armagan.order(chips, Migros)
-const strawberry = new Vegetables("strawberry")
-const mert = new Customer("Mert", "OnderStreet")
-const ordery = mert.order(strawberry, Migros)
-console.log(armagan)
-console.log(mert)
-Migros.printOrder()
+const chips = new FastFood("chips");
+const Migros = new Market("Migros", "OnderStreet");
+const Carrefour = new Market("Carrefour", "AtaturkStreet");
+const armagan = new Customer("Armagan", "LiderStreet");
+const order_Armagan = armagan.order(chips, Migros);
+const tomato = new Vegetables("tomato");
+const mert = new Customer("Mert", "OnderStreet");
+const order_Mert = mert.order(tomato, Carrefour);
+const rabia = new Customer("Rabia", "BagdatStreet");
+const patato = new Vegetables("patato");
+const order_Rabia = rabia.order(patato, Carrefour);
 
 Database.datasaver('customer.json', armagan)
-//Database.datasaver('customer.json', mert)
+Database.datasaver('customer.json', mert)
 Database.datasaver('market.json', Migros)
+
 
 const printcustomer = Database.dataloader('customer.json')
 
