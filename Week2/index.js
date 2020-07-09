@@ -23,13 +23,13 @@ const Vegetables = class {
 
 printName = product => console.log(chalk.cyan(product.name))
 
-const cips = new FastFood("cips")
+const chips = new FastFood("chips")
 const Migros = new Market("Migros", "OnderStreet")
 const armagan = new Customer("Armagan", "LiderStreet")
-const orderx = armagan.order(cips, Migros)
-const ayva = new Vegetables("ayva")
+const orderx = armagan.order(chips, Migros)
+const strawberry = new Vegetables("strawberry")
 const mert = new Customer("Mert", "OnderStreet")
-const ordery = mert.order(ayva, Migros)
+const ordery = mert.order(strawberry, Migros)
 console.log(armagan)
 console.log(mert)
 Migros.printOrder()
