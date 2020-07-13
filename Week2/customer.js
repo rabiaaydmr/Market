@@ -4,14 +4,14 @@ class Customer {
     constructor(name, address) {
         this.name = name
         this.address = address
-        this.order1 =[]
+        this.customerorder =[]
     }
 
     order(product, market) {
         
         //this.product=product.name
         market.prepare(this.name,product)
-        this.order1.push(product)
+        this.customerorder.push(product)
         //market.order.push(product)
         
     }
