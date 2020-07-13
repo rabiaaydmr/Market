@@ -1,18 +1,23 @@
-
 const chalk = require('./node_modules/chalk');
+const Customer = require('./customer');
 module.exports = class Market {
     constructor(name, address) {
         this.name = name
         this.address = address
-        this.order1 = []
+        this.order = []
+       
     }
-    prepare(product) {
+    prepare(customername, product) {
+        
         console.log(chalk.red("Prepared the " + product.name + " !"))
-        this.order1.push(product)
+        
+        this.order.push( product)
     }
 
-    printOrder(order1) {
-        this.order1.forEach(printName)
+    printOrder(order2) {
+        this.order.forEach(printName)
     }
+
+   
 
 }

@@ -1,1 +1,1 @@
-{"name":"Migros","address":"OnderStreet","order1":[{"name":"cips"},{"name":"ayva"}]}
+[{"name":"Migros","address":"OnderStreet","order":[{"name":"chips"}]},{"name":"Carrefour","address":"AtaturkStreet","order":[{"name":"tomato"},{"name":"patato"}]}]
