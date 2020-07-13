@@ -38,7 +38,6 @@ Database.datasaver('customer.json', mert)
 Database.datasaver('market.json', Migros)
 Database.datasaver('market.json', Carrefour)
 
-
 const printcustomer = Database.dataloader('customer.json')
 
 console.log(printcustomer.name)
