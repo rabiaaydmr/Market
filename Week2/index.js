@@ -25,23 +25,21 @@ const chips = new FastFood("chips");
 const Migros = new Market("Migros", "OnderStreet");
 const Carrefour = new Market("Carrefour", "AtaturkStreet");
 const armagan = new Customer("Armagan", "LiderStreet");
-const order_Armagan = armagan.order(chips, Migros);
+armagan.order(chips, Migros);
 const tomato = new Vegetables("tomato");
 const mert = new Customer("Mert", "OnderStreet");
-const order_Mert = mert.order(tomato, Carrefour);
+mert.order(tomato, Carrefour);
 const rabia = new Customer("Rabia", "BagdatStreet");
 const patato = new Vegetables("patato");
-const order_Rabia = rabia.order(patato, Carrefour);
+rabia.order(patato, Carrefour);
 
 Database.datasaver('customer.json', armagan)
 Database.datasaver('customer.json', mert)
 Database.datasaver('market.json', Migros)
-
-
+Database.datasaver('market.json', Carrefour)
 const printcustomer = Database.dataloader('customer.json')
 
 console.log(printcustomer.name)
-
 const printmarket = Database.dataloader('market.json')
 
 console.log(printmarket)
