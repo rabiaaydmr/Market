@@ -40,7 +40,6 @@ Database.datasaver('market.json', Carrefour)
 const printcustomer = Database.dataloader('customer.json')
 
 console.log(printcustomer.name)
-
 const printmarket = Database.dataloader('market.json')
 
 console.log(printmarket)
