@@ -8,7 +8,7 @@ module.exports = class Market {
         this.id=id
     }
     prepare(product) {
-        console.log(chalk.red("Prepared the " + product.name + " !"))
+        console.log(chalk.red("Prepared the " + product + " !"))
         this.order.push(product)
     }
 

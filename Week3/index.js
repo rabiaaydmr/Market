@@ -32,13 +32,13 @@ async function main() {
   
     const people = await CustomerService.findAll()
   
-    console.log(people[0].name)
+    console.log(people)
   
-    await CustomerService.del(1)
+    /*await CustomerService.del(1)
   
     const newCustomer = await CustomerService.findAll()
     
-    console.log(newCustomer[0].name)
+    console.log(newCustomer[0].name)*/
   }
   
   main()

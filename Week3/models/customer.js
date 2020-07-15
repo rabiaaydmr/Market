@@ -11,7 +11,7 @@ class Customer {
     }
 
     order(product, market) {
-        market.prepare(this.name,product)
+        market.prepare(product, this.name)
         this.customerorder.push(product)
     }
     static create({ name, address, order, id }) {
