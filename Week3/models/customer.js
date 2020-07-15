@@ -1,5 +1,6 @@
 
 const chalk = require('chalk');
+//const Product = require('./models/product.js');
 class Customer {
     constructor(name, address, order =[], id) {
         this.name = name

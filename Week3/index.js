@@ -4,26 +4,18 @@ const Customer = require('./models/customer.js')
 const CustomerService =require('./services/customer-service')
 const MarketService =require('./services/market-service')
 const chalk = require('chalk');
+const Product = require('./models/product.js');
+const ProductService = require('./services/product-service')
+
 
 async function main() {
-    const FastFood = class {
-        constructor(name) {
-            this.name = name
-        }
-    }
-    
-    const Vegetables = class {
-        constructor(name) {
-            this.name = name
-        }
-    }
-    
+  
     const mert = new Customer('Mert', 'OnderStreet' )
     const armagan = new Customer('Armagan', "LiderStreet")
-    const chips = new FastFood("chips");
-    const tomato = new Vegetables("tomato");
+    const chips = new Product("chips",armagan);
+    const tomato = new Product("tomato", mert);
     const Migros = new Market("Migros", "OnderStreet")
-    armagan.order("chips",Migros)
+    armagan.order(chips,Migros)
     mert.order("tomato",Migros)
     Migros.report()
   

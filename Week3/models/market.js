@@ -1,5 +1,6 @@
 
 const chalk = require('chalk');
+
 module.exports = class Market {
     constructor(name, address, order= [], id) {
         this.name = name
@@ -8,7 +9,7 @@ module.exports = class Market {
         this.id=id
     }
     prepare(product) {
-        console.log(chalk.red("Prepared the " + product + " !"))
+        console.log(chalk.red("Prepared the " + product+ " !"))
         this.order.push(product)
     }
 
