@@ -1,0 +1,10 @@
+extends layout
+
+block content
+    h1 The number of people is #{customer.length}
+    //- //h4 the first customer is #{customer[0].name} 
+    //- //whenever we want to use dynamic stuff we should us 
+    each person in customer  
+      h4 #{person.name} #{person.address} 
+      
+    
