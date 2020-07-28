@@ -2,18 +2,30 @@ class Market {
   constructor(name, address) {
     this.name = name;
     this.address = address;
-    this.order1 = [];
-  }
-  prepare(product) {
-    console.log("Prepared the " + product.name + " !");
-    this.order1.push(product);
+    this.orders= [];
   }
 
-  printOrder(order1) {
-    this.order1.forEach(printName);
+  printOrders() {
+    console.log(JSON.stringify(this.orders, null, 2));
+  }
+  makeOrder(customer, productList){
+     const newOrder =new Order(customer, productList);
+     this.orders.push(newOrder)
+  }
+  printOrdersByCustomer(customer){
+    const result = this.orders.filter(order => order.customer === customer);
+    console.log(result)
   }
 }
-class FastFood {
+
+
+class Order{
+  constructor(customer, productList) {
+  this.customer=customer;
+  this.productList=productList;
+  }
+}
+class Product{
   constructor(name) {
     this.name = name;
   }
@@ -24,29 +36,38 @@ class Customer {
     this.address = address;
   }
 
-  order(product, market) {
-    market.prepare(product);
-  }
 }
-class Vegetables {
-  constructor(name) {
-    this.name = name;
-  }
-}
+
 
 printName = (product) => console.log(product.name);
 
-const chips = new FastFood("chips");
-const Migros = new Market("Migros", "OnderStreet");
-const Carrefour = new Market("Carrefour", "AtaturkStreet");
+
+
+const chips = new Product("chips");
+const apple = new Product("apple");
+const orange = new Product("orange");
+
+const migros = new Market("Migros", "OnderStreet");
+const carrefour = new Market("Carrefour", "AtaturkStreet");
+
 const armagan = new Customer("Armagan", "LiderStreet");
-const order_Armagan = armagan.order(chips, Migros);
-const tomato = new Vegetables("tomato");
 const mert = new Customer("Mert", "OnderStreet");
-const order_Mert = mert.order(tomato, Carrefour);
-const rabia = new Customer("Rabia", "BagdatStreet");
-const patato = new Vegetables("patato");
-const order_Rabia = rabia.order(patato, Carrefour);
-console.log(armagan);
-Migros.printOrder();
-Carrefour.printOrder();
+
+
+migros.makeOrder(armagan, [chips, apple, orange])
+migros.makeOrder(armagan, [chips, apple, orange])
+migros.makeOrder(armagan, [orange, orange, orange, orange, orange])
+migros.makeOrder(mert, [apple, orange])
+migros.printOrders()
+// migros.printOrdersByCustomer(mert)
+// migros.printOrdersByCustomer(armagan)
+
+// const armagansOrder = armagan.order(chips, migros);
+// const tomato = new Product("tomato");
+// const mertsOrder = mert.order(tomato, carrefour);
+// const rabia = new Customer("Rabia", "BagdatStreet");
+// const patato = new Product("patato");
+// const rabiasOrder = rabia.order(patato, carrefour);
+// console.log(armagan);
+// migros.printOrder();
+// carrefour.printOrder();
