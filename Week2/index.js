@@ -1,47 +1,42 @@
+const Market = require("./market.js");
+const Customer = require("./customer.js");
+const chalk = require("./node_modules/chalk");
+const {dataSaver , dataLoader} = require("./database.js");
+const Product = require("./products.js");
+const Order = require("./orders.js");
 
-const Market = require('./market.js')
-const Customer = require('./customer.js')
-const chalk = require('./node_modules/chalk');
-const Database = require('./database.js')
+console.log(chalk.blue("Hello world!"));
 
+printName = (product) => console.log(chalk.cyan(product.name));
 
-console.log(chalk.blue('Hello world!'));
+const chips = new Product("chips");
+const apple = new Product("apple");
+const orange = new Product("orange");
 
-const FastFood = class {
-    constructor(name) {
-        this.name = name
-    }
-}
+const migros = new Market("Migros", "OnderStreet");
+const carrefour = new Market("Carrefour", "AtaturkStreet");
 
-const Vegetables = class {
-    constructor(name) {
-        this.name = name
-    }
-}
-
-printName = product => console.log(chalk.cyan(product.name))
-
-const chips = new FastFood("chips");
-const Migros = new Market("Migros", "OnderStreet");
-const Carrefour = new Market("Carrefour", "AtaturkStreet");
 const armagan = new Customer("Armagan", "LiderStreet");
-armagan.order(chips, Migros);
-const tomato = new Vegetables("tomato");
 const mert = new Customer("Mert", "OnderStreet");
-mert.order(tomato, Carrefour);
-const rabia = new Customer("Rabia", "BagdatStreet");
-const patato = new Vegetables("patato");
-rabia.order(patato, Carrefour);
 
-Database.datasaver('customer.json', armagan)
-Database.datasaver('customer.json', mert)
-Database.datasaver('market.json', Migros)
-Database.datasaver('market.json', Carrefour)
-const printcustomer = Database.dataloader('customer.json')
+migros.makeOrder(armagan, [chips, apple, orange]);
+migros.makeOrder(mert, [apple, orange]);
+//migros.printOrders();
 
-console.log(printcustomer.name)
-const printmarket = Database.dataloader('market.json')
+// dataSaver("customer.json", armagan);
+// dataSaver("customer.json", mert);
+ dataSaver("market.json", migros);
+// dataSaver("market.json", carrefour);
+// dataSaver("products.json", chips);
 
-console.log(printmarket)
+//const printCustomers = dataLoader("customer.json");
 
 
+//console.log(printCustomers);
+ const printmarket = dataLoader("market.json");
+
+console.log(printmarket);
+
+ //const printProducts = Database.dataLoader("products.json");
+
+ //console.log(printProducts);
