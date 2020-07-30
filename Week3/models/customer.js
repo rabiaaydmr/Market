@@ -1,12 +1,12 @@
 class Customer {
-  constructor(name, address) {
+  constructor(name, address, id) {
     this.name = name;
     this.address = address;
-    this.customerorder = [];
+    this.id = id;
   }
 
-  static create({ name, address, order, id }) {
-    return new Customer(name, address, order, id);
+  static create({ name, address, id }) {
+    return new Customer(name, address, id);
   }
 }
 
