@@ -1,9 +1,8 @@
+const chalk = require("./node_modules/chalk");
+const { dataSaver, dataLoader } = require("./database.js");
 const Market = require("./market.js");
 const Customer = require("./customer.js");
-const chalk = require("./node_modules/chalk");
-const {dataSaver , dataLoader} = require("./database.js");
 const Product = require("./products.js");
-const Order = require("./orders.js");
 
 console.log(chalk.blue("Hello world!"));
 
@@ -21,22 +20,20 @@ const mert = new Customer("Mert", "OnderStreet");
 
 migros.makeOrder(armagan, [chips, apple, orange]);
 migros.makeOrder(mert, [apple, orange]);
-//migros.printOrders();
+migros.printOrders();
 
-// dataSaver("customer.json", armagan);
-// dataSaver("customer.json", mert);
- dataSaver("market.json", migros);
-// dataSaver("market.json", carrefour);
-// dataSaver("products.json", chips);
+dataSaver("customer.json", armagan);
+dataSaver("customer.json", mert);
+dataSaver("market.json", migros);
+dataSaver("market.json", carrefour);
+dataSaver("products.json", chips);
 
-//const printCustomers = dataLoader("customer.json");
+const printCustomers = dataLoader("customer.json");
 
+console.log(printCustomers);
+const printMarket = dataLoader("market.json");
 
-//console.log(printCustomers);
- const printmarket = dataLoader("market.json");
+console.log(printMarket);
+const printProducts = dataLoader("products.json");
 
-console.log(printmarket);
-
- //const printProducts = Database.dataLoader("products.json");
-
- //console.log(printProducts);
+console.log(printProducts);
