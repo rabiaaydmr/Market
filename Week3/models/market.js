@@ -2,15 +2,15 @@ const chalk = require("chalk");
 const Order = require("./orders.js");
 
 module.exports = class Market {
-  constructor(name, address, id) {
+  constructor(name, address, orders = [], id) {
     this.name = name;
     this.address = address;
-    this.orders = [];
+    this.orders = orders;
     this.id = id;
   }
 
   report() {
-    console.log(chalk.blue(this.name) +" market is at " +chalk.green(this.address)+ " and number of orders are "+ this.orders.length);
+    console.log(`${chalk.blue(this.name)} market is at ${chalk.green(this.address)} and number of orders are ${this.orders.length}`);
   }
 
   printOrders() {
@@ -25,7 +25,7 @@ module.exports = class Market {
     console.log(result);
   }
 
-  static create({ name, address, order, id }) {
-    return new Market(name, address, order, id);
+  static create({ name, address, orders, id }) {
+    return new Market(name, address, orders, id);
   }
 };
