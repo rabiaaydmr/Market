@@ -1,10 +1,10 @@
-const BaseService = require('./base-service')
-const MarketModel = require('../models/market')
+const BaseService = require("./base-service");
+const Market = require("../models/market");
 
 class MarketService extends BaseService {
-    constructor() {
-        super(MarketModel, `${__dirname}/../market-database.json`)
-    }
+  constructor() {
+    super(Market, `${__dirname}/../market-database.json`);
+  }
 }
 
-module.exports = new MarketService()
+module.exports = new MarketService();
