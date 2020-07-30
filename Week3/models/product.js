@@ -1,13 +1,6 @@
-const chalk = require('chalk');
-const Customer = require('./customer.js')
 class Product {
-
- constructor(name,customername)
- {
-     this.name=name
-     this.customername=Customer.name
-
- }
+  constructor(name) {
+    this.name = name;
+  }
 }
-
-module.exports = Product
+module.exports = Product;
