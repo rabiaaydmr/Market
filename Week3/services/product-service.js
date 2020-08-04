@@ -1,11 +1,10 @@
-const BaseService = require('./base-service')
-const ProductModel = require('../models/product')
-
+const BaseService = require("./base-service");
+const Product = require("../models/product");
 
 class ProductService extends BaseService {
-    constructor() {
-        super(ProductModel, `${__dirname}/../product-database.json`)
-    }
+  constructor() {
+    super(Product, `${__dirname}/../product-database.json`);
+  }
 }
 
-module.exports = new ProductService()
+module.exports = new ProductService();

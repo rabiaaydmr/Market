@@ -1,80 +1,42 @@
-
-const Market = require('./models/market.js')
-const Customer = require('./models/customer.js')
-const CustomerService =require('./services/customer-service')
-const MarketService =require('./services/market-service')
-const chalk = require('chalk');
-const Product = require('./models/product.js');
-const ProductService = require('./services/product-service')
-
+const chalk = require("chalk");
+const customerService = require("./services/customer-service");
+const marketService = require("./services/market-service");
+const productService = require("./services/product-service");
+const Market = require("./models/market.js");
+const Customer = require("./models/customer.js");
+const Product = require("./models/product.js");
 
 async function main() {
-  
-    const mert = new Customer('Mert', 'OnderStreet' )
-    const armagan = new Customer('Armagan', "LiderStreet")
-    const chips = new Product("chips",armagan);
-    const tomato = new Product("tomato", mert);
-    const Migros = new Market("Migros", "OnderStreet")
-    armagan.order(chips,Migros)
-    mert.order("tomato",Migros)
-    Migros.report()
-  
-    await CustomerService.add(mert)
-    await CustomerService.add(armagan)
-  
-    const people = await CustomerService.findAll()
-  
-    console.log(people)
-  
-    /*await CustomerService.del(1)
-  
-    const newCustomer = await CustomerService.findAll()
-    
-    console.log(newCustomer[0].name)*/
-  }
-  
-  main()
+  const chips = new Product("chips");
+  const apple = new Product("apple");
+  const orange = new Product("orange");
 
+  const migros = new Market("Migros", "OnderStreet");
 
-/*console.log(chalk.blue('Hello world!'));
+  const armagan = new Customer("Armagan", "LiderStreet");
+  const mert = new Customer("Mert", "OnderStreet");
+  const rabia = new Customer("Rabia", "OnderStreet");
 
-const FastFood = class {
-    constructor(name) {
-        this.name = name
-    }
+  migros.makeOrder(armagan, [chips, apple, orange]);
+  migros.makeOrder(mert, [apple, orange]);
+  migros.report();
+
+  //   await customerService.add(mert);
+  //   await customerService.add(armagan);
+  //   await customerService.add(rabia);
+  //   await marketService.add(migros);
+  //   const product = await productService.add(chips);
+
+  //   console.log(product);
+  //   const people = await customerService.findAll();
+
+  //   console.log(people);
+
+  //   await customerService.del(2);
+
+  //   const customers = await customerService.findAll();
+
+  //   console.log(customers);
 }
 
-const Vegetables = class {
-    constructor(name) {
-        this.name = name
-    }
-}
-
-printName = product => console.log(chalk.cyan(product.name))
-
-const chips = new FastFood("chips");
-const Migros = new Market("Migros", "OnderStreet");
-const Carrefour = new Market("Carrefour", "AtaturkStreet");
-const armagan = new Customer("Armagan", "LiderStreet");
-const order_Armagan = armagan.order(chips, Migros);
-const tomato = new Vegetables("tomato");
-const mert = new Customer("Mert", "OnderStreet");
-const order_Mert = mert.order(tomato, Carrefour);
-const rabia = new Customer("Rabia", "BagdatStreet");
-const patato = new Vegetables("patato");
-const order_Rabia = rabia.order(patato, Carrefour);
-
-Database.datasaver('customer.json', armagan)
-Database.datasaver('customer.json', mert)
-Database.datasaver('market.json', Migros)
-
-
-const printcustomer = Database.dataloader('customer.json')
-
-console.log(printcustomer.name)
-
-const printmarket = Database.dataloader('market.json')
-
-console.log(printmarket)
-*/
-
+main();
