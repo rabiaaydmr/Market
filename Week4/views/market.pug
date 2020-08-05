@@ -1,8 +1,6 @@
 extends layout
 
 block content
-    h1 The number of market is #{market.length}
-    //- //h4 the first customer is #{customer[0].name} 
-    //- //whenever we want to use dynamic stuff we should us 
-    each uniqueMarket in market 
-      h4 #{uniqueMarket.name} #{uniqueMarket.address} 
+    h1 The number of market is #{markets.length}
+    each market in markets
+      h4 #{market.name} #{market.address}
