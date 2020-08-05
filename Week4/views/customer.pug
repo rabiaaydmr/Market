@@ -1,0 +1,8 @@
+extends layout
+
+block content
+    h1 The number of people is #{customer.length}
+    each user in customer  
+      h4 #{user.name} #{user.address} 
+      
+    
