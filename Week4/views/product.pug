@@ -1,9 +1,6 @@
 extends layout
 
 block content
-    h1 The number of product is #{product.length}
-    //- //h4 the first customer is #{customer[0].name} 
-    //- //whenever we want to use dynamic stuff we should us 
-    each uniqueProduct in product  
-      h4 #{uniqueProduct.name} #{uniqueProduct.address} 
-      
+    h1 The number of product is #{products.length}
+    each product in products
+      h4 #{product.name} #{product.address}
