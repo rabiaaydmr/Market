@@ -5,7 +5,7 @@ const Product = require('../services/product-service')
 
 router.get('/all', async (req, res) => {
   const products = await Product.findAll()
-  res.render('list', { items: products })
+  res.render('list', { items: products, listName : "Products" })
 })
 
 router.get('/:id', async (req, res) => {

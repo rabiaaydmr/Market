@@ -1,24 +1,34 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
-const customerSchema = new mongoose.Schema({   //instancelar or variable camelcaselere dikkkattt
+const customerSchema = new mongoose.Schema(
+  {
+    //instancelar or variable camelcaselere dikkkattt
     name: {
-        type: String,
-        required: true,
-        minlength: 2
+      type: String,
+      required: true,
+      minlength: 2,
     },
-    address: String
-})
+    address: String,
+  },
+  {
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
+  }
+);
 
-customerSchema.methods.findPeersOver18 = function (cb) {
-    return CustomerModel.find({
-        age: {
-            $gte: 18
-        }
-    });
-};
+customerSchema.virtual("myOrders", {
+  ref: "Order", // The model to use
+  localField: "_id", // Find people where `localField`
+  foreignField: "customer", // is equal to `foreignField`
+});
 
-customerSchema.plugin(require('mongoose-autopopulate'))
+customerSchema.pre(/^find/, function () {
+  // `this` is an instance of mongoose.Query
+  this.populate("myOrders")
+});
 
-const CustomerModel = mongoose.model('Customer', customerSchema)
+customerSchema.plugin(require("mongoose-autopopulate"));
 
-module.exports = CustomerModel   //model class böyle olabilir :)
+const CustomerModel = mongoose.model("Customer", customerSchema);
+
+module.exports = CustomerModel; //model class böyle olabilir :)

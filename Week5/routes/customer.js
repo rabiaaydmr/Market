@@ -7,7 +7,7 @@ const Market = require('../services/market-service')
 
 router.get('/all', async (req, res) => {
   const customers = await Customer.findAll()
-  res.render('list', { items: customers })
+  res.render('list', { items: customers, listName : "Customers" })
 })
 
 router.get('/:id', async (req, res) => {

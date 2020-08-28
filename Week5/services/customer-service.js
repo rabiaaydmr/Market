@@ -3,9 +3,9 @@ const Customer = require("../models/customer");
 
 class CustomerService extends BaseService {
   model = Customer
-  async attendMeetup(customer, market) {
-    customer.meetups.push(market)
-    market.attendees.push(customer)
+  async makeOrder(customer, market) {
+    customer.orderFromMarket.push(market)
+    market.orders.push(customer)
     await customer.save()
     await market.save()
   }

@@ -1,0 +1,22 @@
+POST http://localhost:7000/customer/5f479365a905ff97d0dc753f HTTP/1.1
+Content-Type: application/json
+
+{"name":"Ayse","address":"OnderStreet", "orderFromMarket":"5f4780f9b5e01bcde43203cd"}
+
+###
+
+GET http://localhost:7000/customer/5f479365a905ff97d0dc753f HTTP/1.1
+
+###
+
+
+GET http://localhost:7000/market/all HTTP/1.1
+
+###
+
+DELETE  http://localhost:7000/customer/5f479365a905ff97d0dc753f HTTP/1.1
+
+###
+
+PATCH http://localhost:7000/customer/5f479365a905ff97d0dc753f HTTP/1.1
+content-type:application/json
