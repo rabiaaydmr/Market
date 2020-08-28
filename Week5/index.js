@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const customerRouter = require("./routes/customer");
 const productRouter = require("./routes/product");
 const marketRouter = require("./routes/market");
+const orderRouter = require("./routes/order");
 
 require('./mongo-connection')
 
@@ -15,6 +16,7 @@ app.use(bodyParser.json())
 app.use('/customer', customerRouter)
 app.use('/market', marketRouter)
 app.use('/product', productRouter)
+app.use('order', orderRouter)
 
 app.get('/', (req, res) => {
   res.render('index')

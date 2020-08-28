@@ -1,19 +1,22 @@
 const mongoose = require('mongoose')
 
-const MarketSchema = new mongoose.Schema({
+const marketSchema = new mongoose.Schema({
     name: String,
     address: String,
     orders: [{
         type: mongoose.SchemaTypes.ObjectId,
-        ref: 'Orders',
+        ref: 'Order',
+        //require: true,
         autopopulate: {
-            maxDepth: 1
+          select: '-market',
+          maxDepth: 2
         }
     }]
 })
 
-MarketSchema.plugin(require('mongoose-autopopulate'))
 
-const MarketModel= mongoose.model('Market', MarketSchema)
+marketSchema.plugin(require('mongoose-autopopulate'))
+
+const MarketModel= mongoose.model('Market', marketSchema)
 
 module.exports = MarketModel

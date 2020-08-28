@@ -6,7 +6,14 @@ const customerSchema = new mongoose.Schema({   //instancelar or variable camelca
         required: true,
         minlength: 2
     },
-    address: String
+    address: String,
+    orderFromMarket: [{
+      type: mongoose.SchemaTypes.ObjectId,
+      ref: 'Order',
+      autopopulate: {
+          maxDepth: 2
+      }
+  }]
 })
 
 customerSchema.methods.findPeersOver18 = function (cb) {
