@@ -1,0 +1,7 @@
+extends layout
+
+block content
+    h1 List: #{listName}
+    h1 Count: #{items.length}
+    hr
+    pre #{JSON.stringify(items, null, 4)}
